@@ -15,17 +15,17 @@ export const UserApp = () => {
     }
   }
 
-  useEffect(() => {
+  const handleFetch = () => {
     fetchUsers()
-  }, [])
+  }
 
   return (
     <>
     <h1>Lista de usuarios:</h1>
+    <button onClick={handleFetch}>Mostrar Usuarios</button>
     <ul>
       {users.map(user => <li key={user.id}>Nombre:{user.name}, Email:{user.email}</li>)}
     </ul>
-
     </>
   )
 }
