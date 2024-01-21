@@ -6,12 +6,8 @@ export const AgregarTarea = ({agregarTarea}) => {
         setInputValue(event.target.value);
 };
 const onSubmit = (event) => {
-    const envio = {
-        nombre: inputValue,
-        visto: false
-    }
     event.preventDefault()
-    agregarTarea(tareas =>[...tareas, envio]) // tareas =>[...tareas, <---- trae el array anterior para que no se borre la informacion
+    agregarTarea(inputValue) // tareas =>[...tareas, <---- trae el array anterior para que no se borre la informacion
 }
 return (
     <>
