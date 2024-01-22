@@ -1,4 +1,4 @@
-import { useFetchData } from "../hook/useFetchData"
+import { useFetchData } from "../hooks/useFetchData"
 
 export const UserList = ({endPoint}) => {
 
@@ -7,8 +7,12 @@ export const UserList = ({endPoint}) => {
   return (
     <>
     <ul>
-        {endPoint == 'users' ? data.map(user => <li key={user.id}>Nombre:{user.name}, Email:{user.email}</li>)
-            : data.map(user => <li key={user.id}>Nombre:{user.name}, Body:{user.body}</li>)}
+        {isLoading 
+          ? <p>Cargando...</p> 
+          : endPoint == 'users' 
+          ? data.map(user => <li key={user.id}>Nombre:{user.name}, Email:{user.email}</li>)
+          : data.map(user => <li key={user.id}>Nombre:{user.name}, Body:{user.body}</li>)
+        }
     </ul>
     </>
 
