@@ -7,10 +7,19 @@ export const CallBack = () => {
 
     const [counter, setCounter] = useState(0)
 
-    const incrementarPadre = useCallback((val) => {
+    const incrementarPadre = useCallback(
+        (val) => {
         setCounter(contador => contador +val)
     },[]
     )
+
+    // useCallback(
+    //   () => {
+    //     first
+    //   },
+    //   [second],
+    // )
+    
 
   return (
     <>
