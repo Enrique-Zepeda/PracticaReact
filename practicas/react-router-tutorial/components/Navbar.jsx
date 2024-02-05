@@ -21,6 +21,9 @@ export const Navbar = () => {
         <li className="nav-item">
           <NavLink to='/about' className="nav-link" >About Me</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink to='/login' className="nav-link active" aria-current="page" >Login</NavLink>
+        </li>
       </ul>
     </div>
   </div>
