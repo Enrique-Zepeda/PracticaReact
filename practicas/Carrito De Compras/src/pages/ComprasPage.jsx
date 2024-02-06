@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Card } from "../components/Card"
 
 export const ComprasPage = () => {
 
@@ -21,6 +22,15 @@ export const ComprasPage = () => {
     <>
     <h1>Compras:</h1>
     <hr />
+    {productos.map(producto => (
+      <Card key={producto.id}
+      imagen={producto.image}
+      titulo={producto.title}
+      descripcion={producto.description}
+      precio={producto.price}
+      >
+      </Card>
+    ))}
     </>
   )
 }
