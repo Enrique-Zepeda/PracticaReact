@@ -3,10 +3,12 @@ import { NavBar } from "./components/NavBar"
 import { ComprasPage } from "./pages/ComprasPage"
 import { CarritoPage } from "./pages/CarritoPage"
 import { ProductosProvider } from "./context/ProductosProvider"
+import { CarritoProvider } from "./context/CarritoProvider"
 
 export const CarritoApp = () => {
   return (
     <ProductosProvider>
+      <CarritoProvider>
     <NavBar></NavBar>
     <div className="container">
     <Routes>
@@ -15,6 +17,7 @@ export const CarritoApp = () => {
         <Route path="/*" element={<Navigate to="/"></Navigate>}> </Route>
     </Routes>
     </div>
+      </CarritoProvider>
     </ProductosProvider>
   )
 }
