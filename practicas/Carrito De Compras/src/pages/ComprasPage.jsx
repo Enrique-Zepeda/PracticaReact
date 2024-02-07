@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { Card } from "../components/Card"
 import { ProductosContext } from "../context/ProductosContext"
 
+
 export const ComprasPage = () => {
 
   const {productos} = useContext(ProductosContext)
