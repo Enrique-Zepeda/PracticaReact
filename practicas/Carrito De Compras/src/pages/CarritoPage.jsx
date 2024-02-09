@@ -3,7 +3,7 @@ import { CarritoContext } from "../context/CarritoContext"
 
 export const CarritoPage = () => {
 
-  const { listaCompras, agregarCompra, aumentarCantidad, disminuirCantidad, eliminarCompra } = useContext(CarritoContext)
+  const { listaCompras, aumentarCantidad, disminuirCantidad, eliminarCompra } = useContext(CarritoContext)
 
   const calcularTotal = () => {
     return listaCompras.reduce((total, item) => total + item.price * item.cantidad, 0).toFixed(2)
