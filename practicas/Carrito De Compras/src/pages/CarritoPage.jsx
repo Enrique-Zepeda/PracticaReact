@@ -9,6 +9,10 @@ export const CarritoPage = () => {
     return listaCompras.reduce((total, item) => total + item.price * item.cantidad, 0).toFixed(2)
   }
 
+  const handleImpresion = () => {
+    print("Gracias por su compra")
+  }
+
   return (
     <>
     <table className="table">
@@ -39,13 +43,14 @@ export const CarritoPage = () => {
 
     <th><b>Total:</b></th>
     <td></td>
+    <td></td>
     <td>${calcularTotal()}</td>
     <td></td>
   </tbody>
 </table>
 
     <div className="d-grid gap-2">
-      <button className="btn btn-primary">Comprar</button>
+      <button className="btn btn-primary" onClick={handleImpresion}>Comprar</button>
     </div>
 
     </>
