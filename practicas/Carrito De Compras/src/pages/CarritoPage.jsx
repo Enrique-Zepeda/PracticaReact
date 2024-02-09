@@ -22,7 +22,11 @@ export const CarritoPage = () => {
     <tr key={item.id}>
       <th>{item.title}</th>
       <td>{item.price}</td>
-      <td>1</td>
+      <td>
+        <button className="btn btn-ouline-primary" onClick={() => disminuirCantidad(item.id)}>-</button>
+        <button className="btn btn-primary">{item.cantidad}</button>
+        <button className="btn btn-ouline-primary" onClick={() => aumentarCantidad(item.id)}>+</button>
+      </td>
       <td><button type="button" className="btn btn-danger" onClick={()=>eliminarCompra(item.id)}>Eliminar</button></td>
     </tr>
 
