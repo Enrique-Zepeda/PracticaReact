@@ -46,7 +46,8 @@ export const Buscador = () => {
         <div>
           <h1>{pokemon.name}</h1>
           <p>ID: {pokemon.id}</p>
-          <p>Types: {pokemon.types.map(type => type.type.name).join(', ')}</p>
+          <p>Type: {pokemon.types.map(type => type.type.name).join(', ')}</p>
+          <p>Type: {pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
           <img src={pokemon.sprites.front_default} alt="" />
         </div>
       )}
