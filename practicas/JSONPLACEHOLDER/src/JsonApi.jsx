@@ -1,5 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const JsonApi = () => {
-  return <div>JsonApi</div>;
+  const [users, setUsers] = useState({});
+
+  useEffect(() => {
+    const response = fetch("https://jsonplaceholder.typicode.com/users");
+  }, []);
+
+  return (
+    <>
+      <h1>Usuarios</h1>;
+    </>
+  );
 };
