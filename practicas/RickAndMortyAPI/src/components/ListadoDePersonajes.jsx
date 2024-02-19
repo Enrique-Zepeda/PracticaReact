@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Personaje } from "./Personaje";
 
 export const Listado = () => {
   const [personajes, setPersonajes] = useState([]);
@@ -16,17 +17,7 @@ export const Listado = () => {
   return (
     <>
       {personajes.map((personaje) => {
-        return (
-          // aveces tenemos que poner el return porque sino no muestra nada
-          <div key={personaje.id}>
-            <p>Nombre:{personaje.name}</p>
-            <img
-              src={personaje.image}
-              alt={`Imagen del personaje:${personaje.name}`}
-            />{" "}
-            {/* Uso otras llaves porque en el return no se puede usar JS sin las llaves */}
-          </div>
-        );
+        return <Personaje key={personaje.id} personaje={personaje} />;
       })}
     </>
   );

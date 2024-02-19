@@ -1,4 +1,3 @@
-import { Personaje } from "./components/Personaje";
 import { Listado } from "./components/ListadoDePersonajes";
 
 function App() {
