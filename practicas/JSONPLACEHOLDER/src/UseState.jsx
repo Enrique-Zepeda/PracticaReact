@@ -14,6 +14,13 @@ export const UsingUseState = () => {
       >
         Sumar
       </button>
+      <button
+        onClick={() => {
+          setCounter(counter - 1);
+        }}
+      >
+        Decrementar
+      </button>
     </>
   );
 };
