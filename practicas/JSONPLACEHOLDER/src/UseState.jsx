@@ -21,6 +21,13 @@ export const UsingUseState = () => {
       >
         Decrementar
       </button>
+      <button
+        onClick={() => {
+          setCounter(0);
+        }}
+      >
+        Reiniciar
+      </button>
     </>
   );
 };
