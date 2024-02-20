@@ -19,18 +19,39 @@ export const Listado = () => {
     fetchData();
   }, [contador]);
 
-  const handleClick = () => {
-    setContador(contador + 1);
-    console.log(contador);
+  const NavPage = () => {
+    return (
+      <>
+        <h1>Page 1</h1>
+        {contador > 1 ? (
+          <button
+            onClick={() => {
+              setContador(contador - 1);
+            }}
+          >
+            Pagina anterior
+          </button>
+        ) : (
+          console.log("No hay pagina mayor a 1")
+        )}
+        <button
+          onClick={() => {
+            setContador(contador + 1);
+          }}
+        >
+          Siguiente Pagina
+        </button>
+      </>
+    );
   };
 
   return (
     <div className="container">
+      <NavPage />
       {loading ? ( //si loading es true muestras loading si no muestras los personajes
         <h1>Loading</h1>
       ) : (
         <div className="row">
-          <button onClick={handleClick}>Siguiente pagina</button>
           {personajes.map((personaje) => {
             return (
               <div className="col-md-4" key={personaje.id}>
