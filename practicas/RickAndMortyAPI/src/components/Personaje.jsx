@@ -1,13 +1,13 @@
 export const Personaje = ({ personaje }) => {
   return (
-    // aveces tenemos que poner el return porque sino no muestra nada
-    <div>
-      <p>Nombre:{personaje.name}</p>
+    <div className="text-center p-5">
+      <h3>{personaje.name}</h3>
       <img
+        className="img-fluid rounded-pill "
         src={personaje.image}
         alt={`Imagen del personaje:${personaje.name}`}
-      />{" "}
-      {/* Uso otras llaves porque en el return no se puede usar JS sin las llaves */}
+      />
+      <p>{personaje.origin.name}</p>
     </div>
   );
 };
