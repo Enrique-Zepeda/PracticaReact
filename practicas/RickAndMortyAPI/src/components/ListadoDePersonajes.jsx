@@ -4,29 +4,30 @@ import { Personaje } from "./Personaje";
 export const Listado = () => {
   const [personajes, setPersonajes] = useState([]);
   const [loading, setLoading] = useState(true); //para crear un loading cuando la app aun no a iniciado
-  const [contador, setContador] = useState(1);
+  const [page, setPage] = useState(1);
 
   const urlBase = "https://rickandmortyapi.com/api/character";
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`${urlBase}?page=${contador}`);
+      const response = await fetch(`${urlBase}?page=${page}`);
       const data = await response.json();
       console.log(data.results); //ponemos result porque la api tiene dos objeto que es info y result y nosotros solo queremos ver los results que son donde estan los personajes
       setLoading(false); //cuando termine de cargar los datos lo ponemos en false para que el estado cambie y cargue los personajes de la api
       setPersonajes(data.results); // igual aqui solo guardamos el objeto results que tiene el arreglo de personajes
     };
     fetchData();
-  }, [contador]);
+  }, [page]);
 
   const NavPage = () => {
     return (
       <>
-        <h1>Page 1</h1>
-        {contador > 1 ? (
+        <p>Page:{page}</p>
+        {page > 1 ? (
           <button
+            className="btn btn-primary m-2 btn-sm"
             onClick={() => {
-              setContador(contador - 1);
+              setPage(page - 1);
             }}
           >
             Pagina anterior
@@ -35,8 +36,9 @@ export const Listado = () => {
           console.log("No hay pagina mayor a 1")
         )}
         <button
+          className="btn btn-primary m-2 btn-sm"
           onClick={() => {
-            setContador(contador + 1);
+            setPage(page + 1);
           }}
         >
           Siguiente Pagina
@@ -61,6 +63,7 @@ export const Listado = () => {
           })}
         </div>
       )}
+      <NavPage />
     </div>
   );
 };
