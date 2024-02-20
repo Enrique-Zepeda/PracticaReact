@@ -15,10 +15,16 @@ export const Listado = () => {
     fetchData();
   }, []);
   return (
-    <>
-      {personajes.map((personaje) => {
-        return <Personaje key={personaje.id} personaje={personaje} />;
-      })}
-    </>
+    <div className="container">
+      <div className="row">
+        {personajes.map((personaje) => {
+          return (
+            <div className="col-md-4" key={personaje.id}>
+              <Personaje personaje={personaje} />
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };

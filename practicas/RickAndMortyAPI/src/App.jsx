@@ -2,10 +2,10 @@ import { Listado } from "./components/ListadoDePersonajes";
 
 function App() {
   return (
-    <>
-      <h1>Rick Y Morty</h1>
+    <div className="bg-dark text-white">
+      <h1 className="text-center display-1 py-4">Rick Y Morty</h1>
       <Listado />
-    </>
+    </div>
   );
 }
 
