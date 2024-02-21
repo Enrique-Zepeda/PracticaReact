@@ -6,13 +6,13 @@ import { tasks as data } from "./task";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const createTask = (taskTitle) => {
+  const createTask = (task) => {
     setTasks([
       ...tasks,
       {
-        title: taskTitle,
+        title: task.title,
         id: tasks.length,
-        description: "nueva tarea",
+        description: task.description,
       },
     ]);
   };
