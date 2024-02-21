@@ -26,7 +26,12 @@ export const TaskForm = ({ createTask }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder="Write a Task" onChange={handleInput} value={title} />
+      <input
+        placeholder="Write a Task"
+        onChange={handleInput}
+        value={title}
+        autoFocus
+      />
       {/* Estoy enviando lo que escribe el usuario a la funcion */}
       <textarea
         value={description}
