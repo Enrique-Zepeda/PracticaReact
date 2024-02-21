@@ -10,10 +10,7 @@ export const TaskForm = ({ createTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask = {
-      title,
-    };
-    console.log(newTask);
+    createTask(title);
   };
 
   return (

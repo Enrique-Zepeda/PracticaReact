@@ -6,8 +6,15 @@ import { tasks as data } from "./task";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const createTask = ({ task }) => {
-    setTasks([...tasks, task]);
+  const createTask = (taskTitle) => {
+    setTasks([
+      ...tasks,
+      {
+        title: taskTitle,
+        id: tasks.length,
+        description: "nueva tarea",
+      },
+    ]);
   };
 
   useEffect(() => {

@@ -5,17 +5,17 @@ export const tasks = [
     description: "Mi primer tarea",
   },
   {
-    id: 2,
+    id: 1,
     title: "Mi segunda tarea",
     description: "Mi sengunda tarea",
   },
   {
-    id: 3,
+    id: 2,
     title: "Mi tercera tarea",
     description: "Mi tercer tarea",
   },
   {
-    id: 4,
+    id: 3,
     title: "Mi cuarta tarea",
     description: "Mi cuarta tarea",
   },
