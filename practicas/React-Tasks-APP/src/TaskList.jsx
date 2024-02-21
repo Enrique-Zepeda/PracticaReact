@@ -1,13 +1,4 @@
-import { useEffect, useState } from "react";
-import { tasks as data } from "./task"; // hacemos el as para no tener conflictos con task porque tienen el mismo nombre
-
-export const TaskList = () => {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    setTasks(data);
-  }, []);
-
+export const TaskList = ({ tasks }) => {
   return (
     <>
       {tasks.map((task) => (

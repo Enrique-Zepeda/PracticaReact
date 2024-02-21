@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const TaskForm = () => {
+export const TaskForm = ({ createTask }) => {
   const [title, setTitle] = useState("");
 
   const handleInput = (e) => {
@@ -10,12 +10,15 @@ export const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title);
+    const newTask = {
+      title,
+    };
+    console.log(newTask);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Write a Task" onChange={handleInput} />
+      <input placeholder="Write a Task" onChange={handleInput} />
       {/* Estoy enviando lo que escribe el usuario a la funcion */}
       <button>Save</button>
     </form>
