@@ -68,13 +68,15 @@ export const Listado = () => {
       <NavPage />
       <form onSubmit={handleSubmit}>
         <input
-          className=""
+          className="position-relative py-2 px-4 text-bg-secondary border border-secondary rounded-pill"
           placeholder="Escribe un personaje"
           onChange={handleInput}
           type="text"
           value={buscar}
         />
-        <button type="submit">Buscar</button>
+        <button type="submit" className="btn btn-primary m-2 p-2">
+          Buscar
+        </button>
       </form>
       {loading ? ( //si loading es true muestras loading si no muestras los personajes
         <h1>Loading</h1>
