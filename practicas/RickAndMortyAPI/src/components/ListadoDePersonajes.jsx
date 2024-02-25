@@ -21,18 +21,19 @@ export const Listado = () => {
     fetchData();
   }, [page]);
 
+  useEffect(() => {
+    const resultados = personajes.filter((personaje) =>
+      personaje.name.toLowerCase().includes(buscar.toLowerCase())
+    );
+    setResultadoBusqueda(resultados);
+  }, [buscar, personajes]);
+
   const handleInput = (e) => {
     setBuscar(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(buscar);
-    const resultados = personajes.filter((personaje) =>
-      personaje.name.toLowerCase().includes(buscar.toLowerCase())
-    );
-    setResultadoBusqueda(resultados);
-    console.log(resultados);
   };
 
   const NavPage = () => {
@@ -62,7 +63,6 @@ export const Listado = () => {
       </>
     );
   };
-
   return (
     <div className="container">
       <NavPage />
@@ -78,17 +78,28 @@ export const Listado = () => {
           Buscar
         </button>
       </form>
-      {loading ? ( //si loading es true muestras loading si no muestras los personajes
+      {loading ? (
         <h1>Loading</h1>
       ) : (
         <div className="row">
-          {personajes.map((personaje) => {
-            return (
+          {buscar === "" ? (
+            // Si el input está vacío, mostrar todos los personajes
+            personajes.map((personaje) => (
               <div className="col-md-4" key={personaje.id}>
                 <Personaje personaje={personaje} />
               </div>
-            );
-          })}
+            ))
+          ) : resultadoBusqueda.length > 0 ? (
+            // Si hay resultados de búsqueda, mostrar solo esos personajes
+            resultadoBusqueda.map((personaje) => (
+              <div className="col-md-4" key={personaje.id}>
+                <Personaje personaje={personaje} />
+              </div>
+            ))
+          ) : (
+            // Si no hay resultados de búsqueda, mostrar un mensaje
+            <p>No se encontraron resultados</p>
+          )}
         </div>
       )}
     </div>
