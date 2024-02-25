@@ -24,8 +24,8 @@ export const DogsAPI = () => {
   };
 
   return (
-    <>
-      <h1>Dogs API</h1>
+    <div>
+      <h1 className="title">Dogs API</h1>
       <hr className="border border-primary border-3 opacity-50" />
       <select
         className="form-select form-select-lg mb-3"
@@ -63,6 +63,6 @@ export const DogsAPI = () => {
       </button>
       <hr />
       {imagen && <img className="img-fluid" src={imagen} alt="Dog" />}
-    </>
+    </div>
   );
 };
