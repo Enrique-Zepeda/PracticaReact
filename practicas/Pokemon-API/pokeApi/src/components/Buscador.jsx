@@ -28,7 +28,7 @@ export const Buscador = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center ">
       <form onSubmit={handleOnSubmit}>
         <input
           className="border p-2 mr-2"
@@ -45,17 +45,23 @@ export const Buscador = () => {
       {error && <p>{error}</p>}
 
       {pokemon && (
-        <div>
-          <h1>{pokemon.name}</h1>
-          <p>ID: {pokemon.id}</p>
-          <p>Type: {pokemon.types.map((type) => type.type.name).join(", ")}</p>
-          <p>
+        <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-lg">
+          <h1 className="text-2xl font-bold mb-2">{pokemon.name}</h1>
+          <p className="text-gray-600 mb-2">ID: {pokemon.id}</p>
+          <p className="text-blue-500 mb-2">
+            Type: {pokemon.types.map((type) => type.type.name).join(", ")}
+          </p>
+          <p className="mb-4">
             Type:{" "}
             {pokemon.abilities
               .map((ability) => ability.ability.name)
               .join(", ")}
           </p>
-          <img src={pokemon.sprites.front_default} alt="" />
+          <img
+            src={pokemon.sprites.front_default}
+            alt=""
+            className="rounded-lg shadow-lg w-full"
+          />
         </div>
       )}
     </div>
