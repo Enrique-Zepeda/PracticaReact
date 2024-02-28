@@ -1,7 +1,10 @@
+import { useParams } from "react-router-dom";
 export const UserPage = () => {
+  const { id } = useParams();
+  console.log(id);
   return (
     <div>
-      <h1>User page</h1>
+      <h1>Id del usuario:{id}</h1>
     </div>
   );
 };
