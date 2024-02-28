@@ -3,6 +3,7 @@ import { HomePage } from "./pages/HomePage";
 import { AboutPage } from "./pages/AboutPage";
 import { NotFound } from "./pages/NotFound";
 import { NavBar } from "./components/NavBar";
+import { UserPage } from "./pages/UserPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/users" element={<UserPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
