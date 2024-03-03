@@ -1,7 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { UserPage } from "./pages/UserPage";
+
 function App() {
   return (
     <>
-      <h1>Hola Mundo</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<UserPage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
