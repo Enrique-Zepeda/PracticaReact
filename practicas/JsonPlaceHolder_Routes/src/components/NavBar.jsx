@@ -1,48 +1,31 @@
+import { Link } from "react-router-dom";
 export const NavBar = () => {
   return (
-    <nav className="bg-gray-800 p-2 mt-0 fixed w-full z-10 top-0">
-      <div className="container mx-auto flex flex-wrap items-center">
-        <div className="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
-          <a
-            className="text-white no-underline hover:text-white hover:no-underline"
-            href="#"
-          >
-            <span className="text-2xl pl-2">Mi Marca</span>
-          </a>
-        </div>
-        <div className="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
-          <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
-            <li className="mr-3">
-              <a
-                className="inline-block py-2 px-4 text-white no-underline"
-                href="#"
-              >
-                Inicio
-              </a>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <a className="navbar-brand">Navbar</a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to={"/"} className="nav-link">
+                Usuarios
+              </Link>
             </li>
-            <li className="mr-3">
-              <a
-                className="inline-block text-gray-400 no-underline hover:text-white hover:text-underline py-2 px-4"
-                href="#"
-              >
-                Sobre nosotros
-              </a>
-            </li>
-            <li className="mr-3">
-              <a
-                className="inline-block text-gray-400 no-underline hover:text-white hover:text-underline py-2 px-4"
-                href="#"
-              >
-                Servicios
-              </a>
-            </li>
-            <li className="mr-3">
-              <a
-                className="inline-block text-gray-400 no-underline hover:text-white hover:text-underline py-2 px-4"
-                href="#"
-              >
-                Contacto
-              </a>
+            <li className="nav-item">
+              <Link to={"/posts"} className="nav-link">
+                Posts
+              </Link>
             </li>
           </ul>
         </div>
