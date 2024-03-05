@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const UserPage = () => {
   const [users, setUsers] = useState([]);
@@ -22,11 +22,15 @@ export const UserPage = () => {
 
   return (
     <>
-      <h1>Usuarios</h1>
-      <div>
+      <div className="card">
+        <h3 className="card-header">Usuario</h3>
         {users.map((user) => (
-          <div key={user.id}>
-            <p>Nombre:{user.name}</p>
+          <div key={user.id} className="card-header">
+            <div className="card-header">
+              <h5 className="card-title">Nombre:{user.name}</h5>
+              <p className="card-text">Usuario:{user.username}</p>
+              <p className="card-text">Email:{user.email}</p>
+            </div>
           </div>
         ))}
       </div>
