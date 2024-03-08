@@ -13,6 +13,7 @@ function App() {
           <Route path="/" element={<UserPage />}></Route>
           <Route path="/posts" element={<PostsPage />}></Route>
           <Route path="/comments" element={<CommentsPage />}></Route>
+          <Route path="/fotos" element={<CommentsPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
