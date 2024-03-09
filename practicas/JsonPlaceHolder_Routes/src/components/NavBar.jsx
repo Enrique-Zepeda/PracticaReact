@@ -32,6 +32,11 @@ export const NavBar = () => {
                 Comments
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={"/fotos"} className="nav-link">
+                Fotos
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
