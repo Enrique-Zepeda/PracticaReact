@@ -16,13 +16,15 @@ export const CommentsPage = () => {
 
   return (
     <>
-      <h1>comments</h1>
-      <div>
+      <div className="card">
+        <h1 className="card-header">comments</h1>
         {comments.map((comment) => (
-          <div key={comment.id}>
-            <h1>{comment.name}</h1>
-            <p>{comment.email}</p>
-            <p>{comment.body}</p>
+          <div key={comment.id} className="card-header">
+            <div className="card-header">
+              <h1 className="card-title">{comment.name}</h1>
+              <p className="card-text">{comment.email}</p>
+              <p className="card-text">{comment.body}</p>
+            </div>
           </div>
         ))}
       </div>
