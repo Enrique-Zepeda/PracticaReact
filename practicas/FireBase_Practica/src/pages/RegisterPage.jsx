@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import "../config/credenciales";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 
 export const RegisterPage = () => {
   const navigate = useNavigate();
@@ -9,14 +13,21 @@ export const RegisterPage = () => {
     event.preventDefault();
     const dataUser = Object.fromEntries(new window.FormData(event.target));
     // console.log(dataUser);
-
     const { email, password } = dataUser;
 
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        sendEmailVerification(user)
+          .then(() => {
+            console.log("Correo de verificacion enviado.");
+          })
+          .catch((error) => {
+            console.error("Error al mandar la verificacion:", error);
+          });
         console.log({ uid: user.uid, email: user.email });
+        alert("Verifica tu correo");
         navigate("/");
       })
       .catch((error) => {
