@@ -13,10 +13,13 @@ export const LoginPage = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
-        console.log({ uid: user.uid, email: user.email });
-        navigate("homeScreen");
+        if (user.emailVerified) {
+          console.log({ uid: user.uid, email: user.email });
+          navigate("homeScreen");
+        } else {
+          alert("Correo Electronico no Verificado");
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
