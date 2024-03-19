@@ -1,6 +1,6 @@
 import { GlobalProvider } from "./context/GlobalState";
 import { Header } from "./components/Header";
-import { TransactionForm } from "./components/TransactionForm";
+import { TransactionForm } from "./components/transactions/TransactionForm";
 import { Balance } from "./components/Balance";
 
 function App() {
