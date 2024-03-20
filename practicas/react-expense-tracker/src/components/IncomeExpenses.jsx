@@ -16,11 +16,11 @@ export const IncomeExpenses = () => {
   console.log(income);
   return (
     <>
-      <div>
+      <div className="flex justify-between my-2">
         <h1>Income</h1>
         <p>{income}</p>
       </div>
-      <div>
+      <div className="flex justify-between my-2">
         <h4>Expenses</h4>
         <p>{expense}</p>
       </div>
