@@ -4,6 +4,7 @@ import { TransactionForm } from "./components/transactions/TransactionForm";
 import { Balance } from "./components/Balance";
 import { TransactionList } from "./components/transactions/TransactionList";
 import { IncomeExpenses } from "./components/IncomeExpenses";
+import { ExpenseChart } from "./components/ExpenseChart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             </div>
             <div className="w-full">
               <TransactionList />
+              <ExpenseChart />
             </div>
           </div>
         </div>
