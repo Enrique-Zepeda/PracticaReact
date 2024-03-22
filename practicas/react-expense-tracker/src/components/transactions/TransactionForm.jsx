@@ -13,6 +13,7 @@ export const TransactionForm = () => {
       description,
       amount: +amount,
     });
+    setAmount(0);
     console.log(description, amount);
   };
 
