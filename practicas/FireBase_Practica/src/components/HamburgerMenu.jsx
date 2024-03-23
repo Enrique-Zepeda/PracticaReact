@@ -1,4 +1,4 @@
-import { fallDown as Menu } from "react-burger-menu";
+import { scaleDown as Menu } from "react-burger-menu";
 import "../styles/HamburgerMenu.css";
 
 export const HamburgerMenu = () => {
@@ -7,7 +7,7 @@ export const HamburgerMenu = () => {
   };
   return (
     <>
-      <Menu pageWrapId={"page-wrap"}>
+      <Menu>
         <a id="home" className="menu-item" href="/">
           Home
         </a>
