@@ -1,4 +1,4 @@
-import { scaleDown as Menu } from "react-burger-menu";
+import { stack as Menu } from "react-burger-menu";
 import "../styles/HamburgerMenu.css";
 import { Link } from "react-router-dom";
 
