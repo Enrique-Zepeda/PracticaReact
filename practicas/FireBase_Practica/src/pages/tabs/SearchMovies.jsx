@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HamburgerMenu } from "../../components/HamburgerMenu";
+import "../../styles/searchMovies.css";
 
 export const SearchMovies = () => {
   const [search, setSearch] = useState("");
@@ -37,16 +38,18 @@ export const SearchMovies = () => {
         <input type="text" placeholder="Ingresa una Pelicula" name="busqueda" />
         <button type="submit">Buscar</button>
       </form>
-      {movies.map((movie) => (
-        <div key={movie.id}>
-          <h1>{movie.title}</h1>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.title}
-          />
-          <p>{movie.overview}</p>
-        </div>
-      ))}
+      <div className="movie-list">
+        {movies.map((movie) => (
+          <div key={movie.id} className="movie-card">
+            <h1>{movie.title}</h1>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <p>{movie.overview}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
