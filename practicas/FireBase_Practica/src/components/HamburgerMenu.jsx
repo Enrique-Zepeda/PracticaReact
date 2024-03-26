@@ -9,7 +9,7 @@ export const HamburgerMenu = () => {
         <a id="home" className="menu-item" href="/">
           Home
         </a>
-        <Link to="/register" className="menu-item">
+        <Link to="/searchMovie" className="menu-item">
           Buscador Peliculas
         </Link>
         <a id="about" className="menu-item" href="/about">

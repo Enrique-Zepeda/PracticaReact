@@ -16,7 +16,7 @@ export const LoginPage = () => {
         const user = userCredential.user;
         if (user.emailVerified) {
           console.log({ uid: user.uid, email: user.email });
-          navigate("homeScreen");
+          navigate("searchMovie");
         } else {
           alert("Correo Electronico no Verificado");
         }
