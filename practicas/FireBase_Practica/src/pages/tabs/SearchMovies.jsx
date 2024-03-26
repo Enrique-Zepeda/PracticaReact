@@ -6,20 +6,20 @@ export const SearchMovies = () => {
   const [movies, setMovies] = useState([]);
 
   const URL_BASE = "https://api.themoviedb.org/3/search/movie";
-  const apiKey = "f2eade83c3c75e944b3a211c852eb69c";
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   const onSubmit = (e) => {
     e.preventDefault();
     const { busqueda } = Object.fromEntries(new window.FormData(e.target));
     console.log(busqueda);
     setSearch(busqueda);
-    fetchPeliculas(search);
+    fetchPeliculas(busqueda);
   };
 
-  const fetchPeliculas = async () => {
+  const fetchPeliculas = async (searchTerm) => {
     try {
       const response = await fetch(
-        `${URL_BASE}?query=${search}&api_key=${apiKey}`
+        `${URL_BASE}?query=${encodeURIComponent(searchTerm)}&api_key=${apiKey}`
       );
       const data = await response.json();
       console.log(data);
