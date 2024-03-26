@@ -22,8 +22,8 @@ export const SearchMovies = () => {
         `${URL_BASE}?query=${encodeURIComponent(searchTerm)}&api_key=${apiKey}`
       );
       const data = await response.json();
-      console.log(data);
-      setMovies(data);
+      console.log(data.results);
+      setMovies(data.results);
     } catch (error) {
       console.error(error);
     }
@@ -37,6 +37,16 @@ export const SearchMovies = () => {
         <input type="text" placeholder="Ingresa una Pelicula" name="busqueda" />
         <button type="submit">Buscar</button>
       </form>
+      {movies.map((movie) => (
+        <div key={movie.id}>
+          <h1>{movie.title}</h1>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+          />
+          <p>{movie.overview}</p>
+        </div>
+      ))}
     </>
   );
 };
