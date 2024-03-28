@@ -6,11 +6,12 @@ export const HamburgerMenu = () => {
   return (
     <>
       <Menu noOverlay disableOverlayClick>
-        <a id="home" className="menu-item" href="/">
-          Home
-        </a>
+        <h1 className="header">Buscador</h1>
         <Link to="/searchMovie" className="menu-item">
-          Buscador Peliculas
+          Peliculas
+        </Link>
+        <Link to="/searchActor" className="menu-item">
+          Actores
         </Link>
         <a id="about" className="menu-item" href="/about">
           About

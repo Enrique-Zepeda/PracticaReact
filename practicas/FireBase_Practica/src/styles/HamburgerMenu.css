@@ -68,3 +68,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-weight: 400;
   font-style: normal;
 }
+
+.header {
+  font-size: 37px;
+  color: #c0b5b5;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+}

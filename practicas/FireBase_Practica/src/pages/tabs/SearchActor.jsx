@@ -31,7 +31,7 @@ export const SearchActor = () => {
   return (
     <>
       <HamburgerMenu />
-      <h1>Buscador Peliculas</h1>
+      <h1>Buscador Actores</h1>
       <form onSubmit={onSubmit}>
         <input type="text" placeholder="Ingresa una Pelicula" name="busqueda" />
         <button type="submit">Buscar</button>
@@ -39,10 +39,10 @@ export const SearchActor = () => {
       <div className="movie-list">
         {actors.map((actor) => (
           <div key={actor.id} className="movie-card">
-            <h1>{actor.title}</h1>
+            <h1>{actor.name}</h1>
             <img
-              src={`https://image.tmdb.org/t/p/w500${actor.poster_path}`}
-              alt={actor.title}
+              src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+              alt={actor.name}
             />
             <p>{actor.overview}</p>
           </div>
