@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "../credenciales";
 
@@ -21,11 +22,37 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const signup = (email, password) =>
-    createUserWithEmailAndPassword(auth, email, password);
+  const signup = async (email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await sendEmailVerification(userCredential.user);
+    } catch (error) {
+      console.error("Ha ocurrido un error durante el registro:", error.message);
+    }
+  };
 
-  const login = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password);
+  const login = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      if (!userCredential.user.emailVerified) {
+        throw new Error("auth/email-verification");
+      }
+    } catch (error) {
+      console.error(
+        "Ha ocurrido un error durante el inicio de sesion:",
+        error.message
+      );
+      throw error;
+    }
+  };
 
   const logout = () => signOut(auth);
 

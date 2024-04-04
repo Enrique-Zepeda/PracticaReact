@@ -47,6 +47,9 @@ export const Login = () => {
       if (error.code === "auth/too-many-requests") {
         setError("Demasiados intenos ¿Olvidaste la contraseña?");
       }
+      if (error.message === "auth/email-verification") {
+        setError("Verifica tu correo");
+      }
     }
   };
 
