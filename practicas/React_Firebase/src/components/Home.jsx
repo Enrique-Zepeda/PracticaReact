@@ -4,7 +4,11 @@ export const Home = () => {
   const { user, logout, loading } = useAuth();
   console.log(user);
   const handleLogout = async () => {
-    await logout();
+    try {
+      await logout();
+    } catch (error) {
+      console.error(error, "ha ocurrido un error");
+    }
   };
 
   if (loading) return <h1>Cargando....</h1>;
