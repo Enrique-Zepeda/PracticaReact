@@ -11,7 +11,7 @@ export const Login = () => {
   });
   const [error, setError] = useState();
 
-  const { login, loginWithGoogle } = useAuth();
+  const { login, loginWithGoogle, resetPassword } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -27,13 +27,13 @@ export const Login = () => {
     } catch (error) {
       console.log(error.code);
       if (error.code === "auth/missing-password") {
-        setError("Contraseña vacia");
+        setError("Porfavor ingresa tu contraseña");
       }
       if (error.code === "auth/invalid-email") {
         setError("Correo invalido");
       }
       if (error.code === "auth/missing-email") {
-        setError("Email vacio");
+        setError("Porfavor ingresa un correo");
       }
       if (error.code === "auth/weak-password") {
         setError("La contraseña debe contener almenos 6 caracteres");
@@ -59,6 +59,17 @@ export const Login = () => {
       console.error(error, "ha ocurrido un error");
     }
   };
+
+  const handleResetPassword = async () => {
+    if (!user.email) return setError("Porfavor ingresa un correo");
+    setError("Se te ha enviado un correo para cambiar la constraseña");
+    try {
+      await resetPassword(user.email);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div className=" w-full max-w-xs m-auto">
       {error && <Alert message={error} />}
@@ -97,9 +108,18 @@ export const Login = () => {
             placeholder="**********"
           />
         </div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded leading-tight focus:outline-none focus:shadow-outline">
-          Login
-        </button>
+        <div className="flex items-center justify-between ">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded leading-tight focus:outline-none focus:shadow-outline">
+            Login
+          </button>
+          <a
+            href="#!"
+            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+            onClick={handleResetPassword}
+          >
+            ¿Olvidaste la contraseña?
+          </a>
+        </div>
       </form>
       <p className="my-4 text-sm flex justify-between px-3">
         ¿No tienes una cuenta? <Link to={"/register"}>Registrate</Link>
