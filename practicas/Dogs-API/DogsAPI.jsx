@@ -34,6 +34,7 @@ export const DogsAPI = () => {
       >
         <option value="">Selecciona un perro</option>
         <option value="boxer">Boxer</option>
+        <option value="dachshund">Layla</option>
         <option value="beagle">beagle</option>
         <option value="doberman">doberman</option>
         <option value="labrador">Labrador</option>
