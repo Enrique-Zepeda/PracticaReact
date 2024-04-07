@@ -29,9 +29,13 @@ function App() {
     },
   ];
   return (
-    <div>
-      <ImageGallery items={images} />
-    </div>
+    <ImageGallery
+      //Le pasas las imagenes y las propiedades que quieras agregar o desctivar
+      items={images}
+      showPlayButton={false}
+      showFullscreenButton={false}
+      thumbnailPosition="top"
+    />
   );
 }
 
