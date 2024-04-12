@@ -16,13 +16,28 @@ function App() {
       done: false,
     },
   ]);
+
+  const createNewTask = (taskName) => {
+    setTasksItems([...tasksItems, { name: taskName, done: false }]);
+  };
   return (
     <>
       <h1>Hola mundo</h1>
-      <TaskCreator />
-      {tasksItems.map((task) => (
-        <div key={task.id}>{task.name}</div>
-      ))}
+      <TaskCreator createNewTask={createNewTask} />
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasksItems.map((task) => (
+            <tr key={task.name}>
+              <td>{task.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
