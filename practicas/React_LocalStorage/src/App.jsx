@@ -1,27 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TaskCreator } from "./components/TaskCreator";
 
 function App() {
-  const [tasksItems, setTasksItems] = useState([
-    {
-      name: "mi primer tarea",
-      done: true,
-    },
-    {
-      name: "mi segunda tarea",
-      done: false,
-    },
-    {
-      name: "mi tercera tarea",
-      done: false,
-    },
-  ]);
+  const [tasksItems, setTasksItems] = useState([]);
 
   const createNewTask = (taskName) => {
     if (!tasksItems.find((task) => task.name === taskName)) {
       setTasksItems([...tasksItems, { name: taskName, done: false }]);
     }
   };
+
+  useEffect(() => {
+    let data = localStorage.getItem("task");
+    if (data) {
+      setTasksItems(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(tasksItems));
+  }, [tasksItems]);
+
   return (
     <>
       <h1>Hola mundo</h1>
