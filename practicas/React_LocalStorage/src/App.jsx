@@ -18,7 +18,9 @@ function App() {
   ]);
 
   const createNewTask = (taskName) => {
-    setTasksItems([...tasksItems, { name: taskName, done: false }]);
+    if (!tasksItems.find((task) => task.name === taskName)) {
+      setTasksItems([...tasksItems, { name: taskName, done: false }]);
+    }
   };
   return (
     <>

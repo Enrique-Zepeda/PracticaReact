@@ -1,12 +1,13 @@
 import { useState } from "react";
 
 export const TaskCreator = ({ createNewTask }) => {
-  const [task, setTask] = useState("");
+  const [newTaskName, setNewTaskName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    createNewTask(task);
-    console.log(task);
-    localStorage.setItem("Task", task);
+    createNewTask(newTaskName);
+    console.log(newTaskName);
+    localStorage.setItem("Task", newTaskName);
+    setNewTaskName("");
   };
   return (
     <div>
@@ -15,10 +16,10 @@ export const TaskCreator = ({ createNewTask }) => {
           type="text"
           placeholder="Ingresa una tarea"
           onChange={(e) => {
-            setTask(e.target.value);
+            setNewTaskName(e.target.value);
           }}
         />
-        <button type="submit">Ingresar</button>
+        <button>Ingresar</button>
       </form>
     </div>
   );
