@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { TaskCreator } from "./components/TaskCreator";
 import { TaskList } from "./components/TaskList";
+import { VisibilityControl } from "./components/VisibilityControl";
 
 function App() {
   const [tasksItems, setTasksItems] = useState([]);
@@ -36,20 +37,16 @@ function App() {
       <h1>Hola mundo</h1>
       <TaskCreator createNewTask={createNewTask} />
       <TaskList tasks={tasksItems} toggleTask={toggleTask} />
-      <div>
-        <input
-          type="checkbox"
-          onChange={() => setShowCompleted(!showCompleted)}
-        />{" "}
-        <label>Show Tasks Done</label>
-        {showCompleted === true && (
-          <TaskList
-            tasks={tasksItems}
-            toggleTask={toggleTask}
-            showCompleted={showCompleted}
-          />
-        )}
-      </div>
+      <VisibilityControl
+        setShowCompleted={(checked) => setShowCompleted(checked)}
+      />
+      {showCompleted === true && (
+        <TaskList
+          tasks={tasksItems}
+          toggleTask={toggleTask}
+          showCompleted={showCompleted}
+        />
+      )}
     </>
   );
 }
