@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { TaskCreator } from "./components/TaskCreator";
+import { TaskList } from "./components/TaskList";
 
 function App() {
   const [tasksItems, setTasksItems] = useState([]);
@@ -25,20 +26,7 @@ function App() {
     <>
       <h1>Hola mundo</h1>
       <TaskCreator createNewTask={createNewTask} />
-      <table>
-        <thead>
-          <tr>
-            <th>Task</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tasksItems.map((task) => (
-            <tr key={task.name}>
-              <td>{task.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TaskList tasks={tasksItems} />
     </>
   );
 }
