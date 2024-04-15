@@ -1,4 +1,5 @@
-export const TaskList = ({ tasks }) => {
+import { TaskRow } from "./TaskRow";
+export const TaskList = ({ tasks, toggleTask }) => {
   return (
     <>
       <table>
@@ -9,9 +10,7 @@ export const TaskList = ({ tasks }) => {
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <tr key={task.name}>
-              <td>{task.name}</td>
-            </tr>
+            <TaskRow task={task} key={task.name} toggleTask={toggleTask} />
           ))}
         </tbody>
       </table>
