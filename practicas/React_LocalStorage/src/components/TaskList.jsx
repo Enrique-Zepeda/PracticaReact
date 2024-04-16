@@ -8,15 +8,13 @@ export const TaskList = ({ tasks, toggleTask, showCompleted = false }) => {
       ));
   };
   return (
-    <>
-      <table>
-        <thead>
-          <tr>
-            <th>Task</th>
-          </tr>
-        </thead>
-        <tbody>{taskTableRow(showCompleted)}</tbody>
-      </table>
-    </>
+    <table className="table table-dark table-striped table-bordered border-secondary">
+      <thead>
+        <tr>
+          <th>Task</th>
+        </tr>
+      </thead>
+      <tbody>{taskTableRow(showCompleted)}</tbody>
+    </table>
   );
 };
