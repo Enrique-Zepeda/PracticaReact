@@ -1,15 +1,22 @@
-export const VisibilityControl = ({ setShowCompleted }) => {
+export const VisibilityControl = ({
+  setShowCompleted,
+  cleanTask,
+  isChecked,
+}) => {
   const handleDelete = () => {
-    alert("limpiando");
+    if (window.confirm("Do u want delete it?")) {
+      cleanTask();
+    }
   };
   return (
     <div>
       <input
         type="checkbox"
         onChange={(e) => setShowCompleted(e.target.checked)}
+        checked={isChecked}
       />
       <label>Show Tasks Done</label>
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>Clear</button>
     </div>
   );
 };

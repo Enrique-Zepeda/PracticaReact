@@ -13,6 +13,11 @@ function App() {
     }
   };
 
+  const cleanTask = () => {
+    setTasksItems(tasksItems.filter((task) => !task.done === true));
+    setShowCompleted(false);
+  };
+
   const toggleTask = (task) => {
     setTasksItems(
       tasksItems.map((t) =>
@@ -39,6 +44,8 @@ function App() {
       <TaskList tasks={tasksItems} toggleTask={toggleTask} />
       <VisibilityControl
         setShowCompleted={(checked) => setShowCompleted(checked)}
+        cleanTask={cleanTask}
+        isChecked={showCompleted}
       />
       {showCompleted === true && (
         <TaskList
