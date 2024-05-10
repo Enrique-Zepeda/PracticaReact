@@ -13,12 +13,12 @@ export const HamburgerMenu = () => {
         <Link to="/searchActor" className="menu-item">
           Actores
         </Link>
-        <a id="about" className="menu-item" href="/about">
+        <Link to="/about" className="menu-item">
           About
-        </a>
-        <a id="contact" className="menu-item" href="/contact">
+        </Link>
+        <Link to="/contact" className="menu-item">
           Contact
-        </a>
+        </Link>
       </Menu>
     </>
   );
