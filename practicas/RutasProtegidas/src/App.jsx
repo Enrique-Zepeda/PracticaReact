@@ -5,9 +5,11 @@ import { HomeUser } from "./pages/HomeUser";
 import { Dashboard } from "./pages/Dashboard";
 import { Analytics } from "./pages/Analytics";
 import { Admin } from "./pages/Admin";
+import { NavBar } from "./components/NavBar";
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path={"/"} element={<HomePage />} />
         <Route path={"/landing"} element={<Landing />} />
