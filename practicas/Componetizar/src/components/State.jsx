@@ -1,20 +1,9 @@
-import { useState } from "react";
+import { Funciones } from "./Funciones";
 import { Boton } from "./Boton";
 import { Contador } from "./Contador";
 
 export const State = () => {
-  const [cont, setCont] = useState(0);
-  console.log(cont);
-  const decrementar = () => {
-    if (cont === 0) {
-      return;
-    }
-    setCont(cont - 1);
-  };
-  const reinciar = () => {
-    setCont(cont === 0 ? 0 : 0);
-  };
-  const incrementar = () => setCont(cont + 1);
+  const { decrementar, reinciar, incrementar, cont } = Funciones();
   return (
     <>
       <h1>Botones</h1>
