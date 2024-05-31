@@ -1,23 +1,22 @@
 import { useState } from "react";
+import { TaskForm } from "./components/TaskForm";
+import { TaskList } from "./components/TaskList";
 
 function App() {
-  const [title, setTitle] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [tasks, setTasks] = useState(["task1", "task2"]);
+  console.log(tasks);
+  const onAddTask = (newTask) => {
+    console.log(newTask);
+    setTasks([...tasks, newTask]);
   };
   return (
     <>
-      <h1>Todo App</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="add new title task"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <button type="submit">Add</button>
-      </form>
+      <h1>Lista de Tareas</h1>
+      <TaskForm onAddTask={onAddTask} />
+      <h3>Tareas</h3>
+      {tasks.map((task) => (
+        <TaskList key={task} task={task} />
+      ))}
     </>
   );
 }
